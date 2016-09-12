@@ -3,7 +3,9 @@ using System.Collections;
 
 public class GPS : MonoBehaviour {
 
-    string message = "nao iniciado";
+    private string message = "nao iniciado";
+
+    public static LocationInfo locationInfo;
 
 
     IEnumerator Start()
@@ -42,6 +44,7 @@ public class GPS : MonoBehaviour {
         {
             // Access granted and location value could be retrieved
             message = "Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp;
+            locationInfo = Input.location.lastData;
             print(message);
         }
 
